@@ -1,0 +1,27 @@
+table {
+    margin: auto;
+
+    font-size: 20px;
+}
+
+.colorTitle {
+    font-weight: bold;
+}
+
+body {
+    text-shadow: 1px 1px 2px black;
+    color: #67f89c;
+
+    background-color: #d1f8ff;
+}
+
+tr{
+    background-color: #44b0bc;
+    
+}
+
+td{
+    border-radius: 5px;
+    padding: 6px;
+}
+

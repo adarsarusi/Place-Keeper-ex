@@ -1,0 +1,47 @@
+body{
+    text-align: center;
+    font-size: 32px;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background-color: #d1f8ff;
+}
+
+main{
+    margin-block-start: 15vh;
+}
+
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+
+    padding: 30px;
+
+    background-color: #44b0bc;
+
+    color: #67f89c;
+    text-shadow: 1px 1px 2px black;
+}
+
+a{
+    cursor: pointer;
+}
+
+a:link {
+  color: #26ff00;
+}
+
+a:visited {
+  color: #2cef77;
+}
+
+a:hover {
+  text-shadow: 1px 1px 2px #00000099;
+}
+
+.links{
+display: flex;
+justify-content: space-around;
+}

@@ -1,0 +1,10 @@
+.hidden {
+    display: none;
+}
+
+
+img {
+    width: 80vw;
+
+    margin-top: 10vh;
+}
