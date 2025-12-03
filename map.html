@@ -9,21 +9,25 @@
     <link rel="stylesheet" href="css/mapStyle.css">
 </head>
 
-<body>
+<body onload="onInit()">
 
     <header>Place Keeper v4</header>
 
-    <main></main>
+    <main>
+        <ul class="placeList"></ul>
+    </main>
 
     <section class="links">
         <a href="index.html">Home Page</a>
         <a href="user-prefs.html">Settings</a>
     </section>
 
-    <script async
-        src="https://maps.googleapis.com/maps/api/js?key={AIzaSyBZU65Rdq5onmQPoh6Zy6-BrE61EvqKN2M}&loading=async&libraries=marker&callback=mapReady"></script>
+    <!-- <script async
+        src="https://maps.googleapis.com/maps/api/js?key={AIzaSyBZU65Rdq5onmQPoh6Zy6-BrE61EvqKN2M}&loading=async&libraries=marker&callback=mapReady"></script> -->
 
-
+    <script src="js/utilService.js"></script>
+    <script src="js/placeService.js"></script>
+    <script src="js/placeController.js"></script>
 </body>
 
 </html>
