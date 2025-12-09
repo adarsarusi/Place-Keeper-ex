@@ -31,10 +31,11 @@ function _createPlace(name, lat, lng, zoom) {
 }
 
 function _createPlaces() {
-    
+    gPlaces = loadFromStorage(PLACE_STORAGE_KEY)
+
     if (!gPlaces || !gPlaces.length) {
-       gPlaces =[ _createPlace('eilat', 32.1416, 34.831213, 0),
-                 _createPlace('eilat2', 35.1416, 37.831213, 0)] 
+       gPlaces =[ _createPlace('Eilat', 29.555901, 34.949108, 14),
+                 _createPlace('Home', 29.564008, 34.946525, 15)] 
         
     }
 

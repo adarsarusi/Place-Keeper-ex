@@ -14,13 +14,36 @@
     <header>Place Keeper v4</header>
 
     <main>
-        <ul class="placeList"></ul>
+
+        <div class="map-container">Map Placeholder</div>
+
+        <section class="map-controller">
+            <div class="heading">
+                <h4>Places</h2>
+                    <button class="marker">📍</button>
+            </div>
+            <ul class="placeList"></ul>
+        </section>
     </main>
+
+    <dialog class="modal">
+        <form onsubmit="onAddPlace(event)" method="dialog">
+            <label for="placeName"></label>
+            <input type="text"
+                   name="placeName"
+                   id="placeName"
+                   placeholder="Place name..." />
+            <button>Add</button>
+        </form>
+    </dialog>
 
     <section class="links">
         <a href="index.html">Home Page</a>
         <a href="user-prefs.html">Settings</a>
     </section>
+
+    <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZU65Rdq5onmQPoh6Zy6-BrE61EvqKN2M&loading=async&libraries=marker"></script>
 
     <!-- <script async
         src="https://maps.googleapis.com/maps/api/js?key={AIzaSyBZU65Rdq5onmQPoh6Zy6-BrE61EvqKN2M}&loading=async&libraries=marker&callback=mapReady"></script> -->
@@ -32,3 +55,5 @@
 </body>
 
 </html>
+
+<!-- API key AIzaSyBZU65Rdq5onmQPoh6Zy6-BrE61EvqKN2M -->
