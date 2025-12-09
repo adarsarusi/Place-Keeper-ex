@@ -53,7 +53,7 @@ async function initMap() {
         const lng = ev.latLng.lng()
         gCoords = { lat, lng }
     })
-    // renderMarkers()
+    renderMarkers()
 }
 
 function onAddPlace(ev) {
@@ -63,7 +63,7 @@ function onAddPlace(ev) {
     if (lat && lng) {
         addPlace(elInput.value, lat, lng, gMap.getZoom())
         renderPlaces()
-        // renderMarkers()
+        renderMarkers()
     }
     document.querySelector('.modal').close()
 }
@@ -72,4 +72,70 @@ function onPanToPlace(id) {
     const place = getPlaceById(id)
     gMap.setCenter({ lat: place.lat, lng: place.lng })
     gMap.setZoom(place.zoom)
+}
+
+function showCurrentUserLocation() {
+    if (!navigator.geolocation) {
+        console.error('Geolocation is not available on this device')
+        return
+    }
+    navigator.geolocation.getCurrentPosition(showLocation, handleLocationError)
+}
+
+function showLocation(position) {
+    const lat = position.coords.latitude
+    const lng = position.coords.longitude
+
+    const { AdvancedMarkerElement, PinElement } = google.maps.marker
+
+    gMap.panTo({ lat, lng })
+
+    const pinBackground = new PinElement({
+        background: '#fb4604ff',
+        borderColor: '#137333',
+        glyph: '🙋‍♂️'
+    })
+
+    new AdvancedMarkerElement({
+        position: { lat, lng },
+        map: gMap,
+        title: 'Your Location',
+        content: pinBackground.element
+    })
+}
+
+function handleLocationError(err) {
+    let errMsg = ''
+    switch (err.code) {
+        case 1:
+            errMsg = `The user didn\'t allow this page to retrieve a location`
+            break
+        case 2:
+            errMsg = 'Unable to determine your location: ' + err.message
+            break
+        case 3:
+            errMsg = 'Timed out before retrieving the location.'
+            break
+    }
+    console.error(errMsg)
+}
+
+function renderMarkers() {
+    const places = getPlaces()
+    if (gMarkers) gMarkers.forEach(marker => marker.setMap(null))
+
+    // Every place is creating a marker
+    gMarkers = places.map(place => {
+        return new google.maps.marker.AdvancedMarkerElement({
+            position: place,
+            map: gMap,
+            title: place.name
+        })
+    })
+}
+
+function onDownloadCSV(elLink) {
+    const csvContent = getPlacesAsCSV()
+    if (!csvContent) return
+    elLink.href = 'data:text/csv;charset=utf-8,' + csvContent
 }
