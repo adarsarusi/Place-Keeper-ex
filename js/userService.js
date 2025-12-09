@@ -24,6 +24,7 @@ function onInitSettings() {
 
 function onInitMain() {
     renderUserTime()
+    renderUserColorsPrefs()
 }
 
 function showAge(newVal) {
@@ -67,6 +68,13 @@ function onSaveSettings(ev) {
     })
 
     renderUserSettings()
+}
+
+function renderUserColorsPrefs() {
+    const user = loadFromStorage('user')
+
+    if (user.bgColor) document.body.style.backgroundColor = user.bgColor
+    if (user.txtColor) document.body.style.color = user.txtColor
 }
 
 function renderUserSettings() {

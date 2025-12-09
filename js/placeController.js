@@ -2,6 +2,7 @@
 
 function onInit() {
     renderPlaces()
+    renderUserColorsPrefs()
 }
 
 function renderPlaces() {

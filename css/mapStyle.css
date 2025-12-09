@@ -1,8 +1,7 @@
 .placeList{
     font-size: 20px;
-    /* text-align: center; */
+    text-align: left;
     
     width: max-content;
     margin: auto;
-    margin-top: 25vh;
 }
